@@ -149,9 +149,9 @@ testpath==0.5.0
 thinc==8.0.13
 threadpoolctl==3.0.0
 tokenizers==0.10.3
-torch==1.7.1
-torchtext==0.8.1
-torchvision==0.8.2
+#torch==1.7.1
+#torchtext==0.8.1
+#torchvision==0.8.2
 tornado==6.1
 tqdm==4.62.3
 traitlets==5.1.1
