@@ -1,0 +1,20 @@
+/* CSSコード */
+td {
+  height: 150px;
+}
+
+.baseline {
+ vertical-align: baseline;
+}
+
+.top {
+  vertical-align: top;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.bottom {
+  vertical-align: bottom;
+}

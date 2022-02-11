@@ -1,0 +1,48 @@
+<!doctype html>
+<title>抽出要約の結果</title>
+<!-- <link rel="stylesheet" href="static/css/style.css"> -->
+<style>
+  .top{
+    vertical-align: top;
+  }
+</style>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<h1>要約結果</h1>
+<div>
+  <p>　
+  {% for sentence in summary %}
+    {{ sentence }}
+    {% if sentence == '。' %}
+    </p><p>
+    {% endif %}
+  {% endfor %}
+</p>
+</div>
+<!-- 
+<table border="1">
+  <tr>
+    <th>原文</th>
+    <th>要約後</th>
+  </tr>
+  <tr>
+    <td>{{ filename }}</td>
+    <td class="top">{{ summary }}</td>
+  </tr>
+</table>
+-->
+<form method=post enctype=multipart/form-data>
+  <button type="button" onclick="history.back()">戻る</button>
+</form>
+<!-- 
+<form action="{{ url_for('uploaded_file', filename=pdf_name) }}" method=post enctype=multipart/form-data>
+  <input type=submit value=要約をダウンロード(pdf) name=download>
+</form>
+-->
