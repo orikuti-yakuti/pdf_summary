@@ -64,7 +64,8 @@ logzero==1.7.0
 Markdown==3.3.6
 MarkupSafe==2.0.1
 matplotlib-inline==0.1.2
-mecab==0.996.3
+#mecab==0.996.3 下のやり方なら、問題なくherokuに上げられるらしい……
+mecab-python
 mistune==0.8.4
 multidict==6.0.2
 murmurhash==1.0.6
