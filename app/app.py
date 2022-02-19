@@ -19,7 +19,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase import cidfonts
 from reportlab.platypus.frames import Frame
 
-UPLOAD_FOLDER = '../flask/app/static/pdfs'
+UPLOAD_FOLDER = '../flask_pdf/app/static/pdfs'
 ALLOWED_EXTENSIONS = {'pdf'}
 
 app = Flask(__name__)
