@@ -19,9 +19,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase import cidfonts
 from reportlab.platypus.frames import Frame
 
-#UPLOAD_FOLDER = '/tmp'
-UPLOAD_FOLDER = './app/static/pdfs'
-#ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+UPLOAD_FOLDER = '../flask/app/static/pdfs'
 ALLOWED_EXTENSIONS = {'pdf'}
 
 app = Flask(__name__)
@@ -82,13 +80,6 @@ def uploaded_file(filename):
     return render_template('pdf.html', pdf_name=pdf_name ,filename=filename, summary = summary, pdf_write = pdf_write)
     #return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-""" @app.route('/abstract/<filename>')
-def abstract_file(filename):
-    pdf_name = filename
-    filename = pdf.pdf_to_txt(filename)
-    summary = inference.abstract(filename)
-    return render_template('abstract.html', summary=summary) """
-
 
 
 @app.route('/', methods=['POST'])
@@ -106,15 +97,6 @@ def upload_file():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return redirect(url_for('uploaded_file', filename=filename))
-"""     if file and allowed_file(file.filename) and request.form.get('abstract'):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) 
-        return redirect(url_for('abstract_file', filename=filename))"""
-"""     if file and allowed_file(file.filename):
-        # マルチバイトなど XSS の可能性のある文字列を変換
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return redirect(url_for('uploaded_file', filename=filename)) """
 
 @app.route('/', methods=['GET'])
 def upload_file_view():
