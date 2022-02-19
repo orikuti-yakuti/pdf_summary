@@ -1,4 +1,5 @@
 import os
+import os.path
 from flask import Flask, flash, request, redirect, url_for, send_from_directory, render_template
 from werkzeug.utils import secure_filename
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
@@ -19,7 +20,9 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase import cidfonts
 from reportlab.platypus.frames import Frame
 
-UPLOAD_FOLDER = '../flask_pdf/app/static/pdfs'
+UPLOAD_FOLDER = './app/static/pdfs'
+UPLOAD_FOLDER = os.path.abspath(UPLOAD_FOLDER)
+
 ALLOWED_EXTENSIONS = {'pdf'}
 
 app = Flask(__name__)
@@ -41,6 +44,7 @@ if not os.path.isdir(PDF_PATH):
 #@app.route('/uploads/<filename>')
 @app.route('/summary/<filename>')
 def uploaded_file(filename):
+    print(UPLOAD_FOLDER)
     #if request.methods == 'POST':
     #    if request.form.get('filename'):
             
